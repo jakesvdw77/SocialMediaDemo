@@ -1,5 +1,14 @@
 # SocialMediaDemo
-Sample application to demostrate a simple social media feed.
+Sample a Java application to demostrate a simple social media feed.
+
+The Project was build in Eclipse as a Maven project
+
+The main Class is the com.socialmedia.SocialMediaFeed
+
+JUnit test is also included in the project
+com.socialmedia.TwitterTester
+
+
 How to run
 
 Using the run.bat file
