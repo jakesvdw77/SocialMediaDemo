@@ -4,11 +4,12 @@ How to run
 
 Using the run.bat file
 
-Browse to the root directory
-Copy a file called user.txt and tweet.txt into the root directory
+Browse to the TwitterSample directory 
+ie : c:\SocialMediaDemo-master\SocialMediaDemo-master\TwitterSample
+Copy a file called user.txt and tweet.txt this directory
 Click on run.bat
 
-To change the location or names off these file
+To change the location or names off input file
 Open the bat file in any text editor
 remove the rem from the option you would like to use and change the names and the lation of the files
 
@@ -17,7 +18,7 @@ Using a Command Widow
 Open a command window using the cmd command in Windows menu
 change the directory to the location on the file system
 ie
-cd\socialmedia
+cd c:\SocialMediaDemo-master\SocialMediaDemo-master\TwitterSample
 
 To list the options available
 java -cp .\target\TwitterSample-0.0.1-SNAPSHOT.jar com.socialmedia.SocialMediaFeed
