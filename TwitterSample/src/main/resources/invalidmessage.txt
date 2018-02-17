@@ -1,0 +1,2 @@
+Jakes> This test checks if that the length of the message does not exceed more that 140 character. This record is fine
+Jakes> This test checks if that the length of the message does not exceed more that 140 character. If the message exceeds the length we should get a message the total  number of message will be 0
