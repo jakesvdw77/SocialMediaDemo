@@ -7,6 +7,7 @@ import java.util.Properties;
 import com.socialmedia.dao.messages.InvalidMessageLengthException;
 import com.socialmedia.dao.messages.MessageDao;
 import com.socialmedia.dao.users.UserDao;
+import com.socialmedia.entities.Message;
 import com.socialmedia.entities.User;
 
 /**
@@ -54,7 +55,7 @@ public class SocialMediaController
 	
 	public void printMessages() 
 	{
-		Map userMessages = messages.loadAllMessages();
+		Map<String, List<Message>> userMessages = messages.loadAllMessages();
 		try
 		{
 		
@@ -63,7 +64,7 @@ public class SocialMediaController
 			System.out.println(user);			
 			if(userMessages.containsKey(user.toString()))
 			{
-				for(Object msg : (List)(userMessages.get(user.toString())))
+				for(Object msg : (List<Message>)(userMessages.get(user.toString())))
 				{
 					System.out.println(msg);
 				}

@@ -11,10 +11,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import com.socialmedia.entities.User;
 
@@ -27,7 +25,7 @@ public class TwitterUserDaoImpl implements UserDao {
 	public TwitterUserDaoImpl(String connectionPath, String type) {
 		this.setConnectionPath(connectionPath);
 		this.fileType = type;
-		messageUsers = new LinkedList();
+		messageUsers = new LinkedList<User>();
 		registerUsers();
 	}
 
@@ -45,7 +43,7 @@ public class TwitterUserDaoImpl implements UserDao {
 		
 		try {
 			if (messageUsers == null)
-				messageUsers = new LinkedList(); // only need to initialize the
+				messageUsers = new LinkedList<User>(); // only need to initialize the
 				
 				if (fileType.equals("file"))
 					fileReader = new FileReader(connectionPath);
@@ -55,7 +53,7 @@ public class TwitterUserDaoImpl implements UserDao {
 					fileReader = new FileReader(file);
 				}
 
-				BufferedReader bufferedReader = new BufferedReader(fileReader);
+				BufferedReader bufferedReader = new BufferedReader(fileReader); // Closed in finally block to ensure it closed
 				String line;
 
 				while ((line = bufferedReader.readLine()) != null) {
@@ -66,7 +64,6 @@ public class TwitterUserDaoImpl implements UserDao {
 					// in the list.
 
 					String[] userList = line.split("\\sfollows\\s|,+");
-					Set<UserDao> follows = new HashSet<UserDao>();
 					User user = null;
 
 					// first register all the users

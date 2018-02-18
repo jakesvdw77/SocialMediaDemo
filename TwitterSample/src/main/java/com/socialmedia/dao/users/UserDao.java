@@ -1,7 +1,6 @@
 package com.socialmedia.dao.users;
 
 import java.util.List;
-import java.util.Set;
 
 import com.socialmedia.entities.User;
 

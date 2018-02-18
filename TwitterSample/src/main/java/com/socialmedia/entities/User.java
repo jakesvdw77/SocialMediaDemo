@@ -20,7 +20,7 @@ public class User implements Comparable<User>
 
 	public User()
 	{ 
-		followers = new HashSet();
+		followers = new HashSet<User>();
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class User implements Comparable<User>
 	public User(String userName)
 	{
 		this.userName = userName;		
-		followers = new HashSet();
+		followers = new HashSet<User>();
 				
 	}
 	

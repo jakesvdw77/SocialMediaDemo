@@ -40,7 +40,7 @@ public class TwitterMessageDaoImpl implements MessageDao
 	}
 
 	@Override
-	public Map loadAllMessages() {
+	public Map<String,List<Message>> loadAllMessages() {
 
 		// We don't want to read the entire file into memory as this will grow
 		// overtime
@@ -48,7 +48,7 @@ public class TwitterMessageDaoImpl implements MessageDao
 		// filter.
 		// If the line matches the User filter it will be added
 
-		userMap = new HashMap();
+		userMap = new HashMap<String,List<Message>>();
 		FileReader fileReader = null;
 
 			try {
@@ -62,7 +62,7 @@ public class TwitterMessageDaoImpl implements MessageDao
 					fileReader = new FileReader(file);
 				}
 
-				BufferedReader bufferedReader = new BufferedReader(fileReader);
+				BufferedReader bufferedReader = new BufferedReader(fileReader); // Closed in finally block to ensure it gets closed
 				String line;
 
 				
@@ -85,14 +85,13 @@ public class TwitterMessageDaoImpl implements MessageDao
 							throw new InvalidMessageLengthException(MAX_MESSAGE_SIZE);
 
 						Message msg = new Message(userKey, messageList[1]);
-						List userMessages = null;
-						boolean isNew = false;
+						List<Message> userMessages = null;
 						if (userMap.containsKey(userKey)) {
 							userMessages = userMap.get(userKey);
 							userMessages.add(msg);
 							userMessages = userMap.get(userKey);
 						} else {
-							userMessages = new LinkedList();
+							userMessages = new LinkedList<Message>();
 							userMessages.add(msg);
 							userMap.put(userKey, userMessages);
 						}
@@ -102,7 +101,7 @@ public class TwitterMessageDaoImpl implements MessageDao
 						{
 							// We have two options
 							// Either just ignore the record or throw a runtime exception //
-							// ie throw lenghtError
+							// example throw lenghtError
 							// In this implementation we will just print the message and continue
 							System.out.println(lenghtError.getMessage());
 						}

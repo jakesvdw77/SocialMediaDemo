@@ -14,7 +14,6 @@ package com.socialmedia;
 
 import java.util.Properties;
 import com.socialmedia.controllers.SocialMediaController;
-import com.socialmedia.controllers.TwitterController;
 
 public class SocialMediaFeed {
 
