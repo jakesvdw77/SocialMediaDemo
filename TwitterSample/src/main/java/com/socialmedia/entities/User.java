@@ -13,7 +13,7 @@ import java.util.Set;
 /*
  * Entity class that stores the user details
  */
-public class User implements Comparable
+public class User implements Comparable<User>
 {
 	private String userName;
 	private Set<User> followers;
@@ -69,9 +69,9 @@ public class User implements Comparable
 	}
 
 	@Override
-	public int compareTo(Object o) 
+	public int compareTo(User user) 
 	{		
-		return this.userName.compareTo(((User)o).getUserName());
+		return this.userName.compareTo(user.getUserName());
 	}
 		
 }
